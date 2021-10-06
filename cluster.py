@@ -43,6 +43,13 @@ def dbscan_clustering(epsilon, cluster_data, rating_data, min_pts=10, verbose=Fa
     # Return the rating dataset with its cluster number
     return ratings_cluster
 
+# TODO add a method to find the centroid coordinates of DBSCAN
+
+
+def find_dbscan_centroids():
+
+    return centroids
+
 
 def find_centroid_distance(which_cluster, centroids, verbose=False):
     centroid_distance = {}
