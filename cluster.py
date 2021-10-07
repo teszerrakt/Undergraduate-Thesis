@@ -21,7 +21,7 @@ def kmeans_clustering(n_clusters, cluster_data, rating_data):
     return ratings_cluster, centroids
 
 
-def dbscan_clustering(epsilon, cluster_data, rating_data, min_pts=10, verbose=False):
+def dbscan_clustering(epsilon, cluster_data, rating_data, min_pts=11, verbose=False):
     # Perform clustering using DBSCAN clustering to get array of clusters
     cluster_prediction = DBSCAN(
         eps=epsilon, min_samples=min_pts).fit_predict(cluster_data)
