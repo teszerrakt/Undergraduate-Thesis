@@ -38,10 +38,11 @@ def predict(user_id, item_id, ratings_cluster, centroids, metric='correlation', 
 
     # Check wether the cluster has enough member for neighbor finding process, if not then merge the current cluster with the nearest cluster
     # Substracted by one to remove the input item
-    cluster_member = len(clustered_ratings) - 1
-    if cluster_member < k:
-        clustered_ratings = merge_cluster(
-            clustered_ratings, ratings_cluster, which_cluster, centroids, k=k)
+    if centroids != None:
+        cluster_member = len(clustered_ratings) - 1
+        if cluster_member < k:
+            clustered_ratings = merge_cluster(
+                clustered_ratings, ratings_cluster, which_cluster, centroids, k=k)
 
     item_loc = clustered_ratings.index.get_loc(item_id)
 
