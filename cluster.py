@@ -31,9 +31,9 @@ def dbscan_clustering(epsilon, cluster_data, rating_data, min_pts=10, verbose=Fa
                                 'cluster': cluster_prediction})], axis=1)
 
     if verbose:
-        length = len(set(cluster_prediction))
-        print('Number of cluster :', length)
-        for c in range(-1, length):
+        cluster_labels = set(cluster_prediction)
+        print('Number of cluster :', len(cluster_labels))
+        for c in cluster_labels:
             print('Cluster', c, ':', len(
                 ratings_cluster.loc[ratings_cluster['cluster'] == c]), 'titles')
 
@@ -42,13 +42,6 @@ def dbscan_clustering(epsilon, cluster_data, rating_data, min_pts=10, verbose=Fa
 
     # Return the rating dataset with its cluster number
     return ratings_cluster
-
-# TODO add a method to find the centroid coordinates of DBSCAN
-
-
-def find_dbscan_centroids():
-
-    return centroids
 
 
 def find_centroid_distance(which_cluster, centroids, verbose=False):
