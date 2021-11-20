@@ -16,11 +16,10 @@ def time_evaluate(test_data, ratings_cluster, centroids, verbose=False):
                     user, item, ratings_cluster, centroids, k=10)
                 end = timeit.default_timer()
                 time_ = end-start
-                error = test_data[item][user] - prediction
+                error = abs(test_data[item][user] - prediction)
 
                 if verbose:
-                    print('{}. item {} | user {} -> {} - {} = {}'.format(i,
-                                                                         item, user, test_data[item][user], prediction, error))
+                    print('{}. item {} | user {} -> {} - {} = {}'.format(i, item, user, test_data[item][user], prediction, error))
 
                 total_time += time_
                 total_error += error
